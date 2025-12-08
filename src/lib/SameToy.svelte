@@ -1,11 +1,10 @@
 <script>
-  import { GripHorizontal } from '@lucide/svelte'
-
   import AAndB from '$lib/AAndB.svelte'
   import DPad from '$lib/DPad.svelte'
   import Logo from '$lib/Logo.svelte'
   import PowerOnOff from '$lib/PowerOnOff.svelte'
   import Screen from '$lib/Screen.svelte'
+  import Speaker from '$lib/Speaker.svelte'
   import Start from '$lib/Start.svelte'
 </script>
 
@@ -14,11 +13,7 @@
 >
   <!-- LEFT SIDE -->
   <div class="flex flex-col items-center gap-[6vh] flex-1">
-    <!-- <div class="flex items-center justify-center h-1/100"> -->
-    <GripHorizontal class="text-gray-800 size-[12vh] opacity-90 flex-1" />
-    <!-- <GripHorizontal class="text-gray-800 size-[15vh] opacity-90" />
-    </div> -->
-
+    <Speaker class="flex-1" />
     <DPad class="flex-1" />
     <PowerOnOff class="flex-1" />
     <div class="flex-1"></div>
@@ -33,7 +28,7 @@
 
   <!-- RIGHT SIDE -->
   <div class="flex flex-col items-center gap-[6vh] flex-1">
-    <GripHorizontal class="text-gray-800 size-[12vh] opacity-90 flex-1" />
+    <Speaker class="flex-1" />
     <AAndB class="flex-1" />
     <Start class="flex-1" />
     <div class="flex-1"></div>
