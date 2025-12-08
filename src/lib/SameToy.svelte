@@ -1,6 +1,7 @@
 <script>
   import AAndB from '$lib/AAndB.svelte'
   import DPad from '$lib/DPad.svelte'
+  import Logo from '$lib/Logo.svelte'
   import PowerOnOff from '$lib/PowerOnOff.svelte'
   import Start from '$lib/Start.svelte'
 </script>
@@ -27,13 +28,7 @@
         </span>
       </slot>
     </div>
-    <!-- Logo -->
-    <h2
-      class="text-center tracking-widest text-purple-900 text-[4vh] opacity-70"
-    >
-      <span class="font-semibold">SAME TOY</span>
-      <span class="font-light"><em>PROGRESS</em></span>
-    </h2>
+    <Logo />
   </div>
 
   <!-- RIGHT SIDE -->
