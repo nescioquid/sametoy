@@ -1,4 +1,6 @@
 <script>
+  import { GripHorizontal } from '@lucide/svelte'
+
   import AAndB from '$lib/AAndB.svelte'
   import DPad from '$lib/DPad.svelte'
   import Logo from '$lib/Logo.svelte'
@@ -11,20 +13,30 @@
   class="card flex-row gap-[3vh] items-center justify-center bg-purple-700 border-9 border-purple-800 rounded-4xl h-[80vh] w-[160vh] p-[6vh] pt-[9vh]"
 >
   <!-- LEFT SIDE -->
-  <div class="flex flex-col items-center gap-[12vh] w-1/6">
-    <DPad />
-    <Start />
+  <div class="flex flex-col items-center gap-[6vh] flex-1">
+    <!-- <div class="flex items-center justify-center h-1/100"> -->
+    <GripHorizontal class="text-gray-800 size-[12vh] opacity-90 flex-1" />
+    <!-- <GripHorizontal class="text-gray-800 size-[15vh] opacity-90" />
+    </div> -->
+
+    <DPad class="flex-1" />
+    <Start class="flex-1" />
+    <div class="flex-1"></div>
+    <div class="flex-1"></div>
   </div>
 
   <!-- CENTER -->
-  <div class="flex flex-col items-center justify-center gap-[2vh] w-4/6">
+  <div class="flex flex-col items-center justify-center gap-[2vh] flex-4">
     <Screen />
     <Logo />
   </div>
 
   <!-- RIGHT SIDE -->
-  <div class="flex flex-col items-center gap-[6vh] w-1/6">
-    <AAndB />
-    <PowerOnOff />
+  <div class="flex flex-col items-center gap-[6vh] flex-1">
+    <GripHorizontal class="text-gray-800 size-[12vh] opacity-90 flex-1" />
+    <AAndB class="flex-1" />
+    <PowerOnOff class="flex-1" />
+    <div class="flex-1"></div>
+    <div class="flex-1"></div>
   </div>
 </div>
