@@ -20,7 +20,7 @@
     </div> -->
 
     <DPad class="flex-1" />
-    <Start class="flex-1" />
+    <PowerOnOff class="flex-1" />
     <div class="flex-1"></div>
     <div class="flex-1"></div>
   </div>
@@ -35,7 +35,7 @@
   <div class="flex flex-col items-center gap-[6vh] flex-1">
     <GripHorizontal class="text-gray-800 size-[12vh] opacity-90 flex-1" />
     <AAndB class="flex-1" />
-    <PowerOnOff class="flex-1" />
+    <Start class="flex-1" />
     <div class="flex-1"></div>
     <div class="flex-1"></div>
   </div>
