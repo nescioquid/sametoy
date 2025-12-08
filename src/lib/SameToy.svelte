@@ -1,62 +1,60 @@
 <script>
   import DPad from '$lib/DPad.svelte'
-  import { Plus, Minus, X, Ellipsis } from '@lucide/svelte'
-
-  export let title = 'SAME TOY ADVANCED'
+  import { Plus, Minus, Ellipsis } from '@lucide/svelte'
 </script>
 
 <div
-  class="card bg-purple-700 border-9 border-purple-800 shadow-xl rounded-lg p-6 flex flex-col items-center"
+  class="card flex-row gap-[3vh] items-center justify-center bg-purple-700 border-9 border-purple-800 rounded-4xl h-[80vh] w-[160vh] p-[6vh] pt-[9vh]"
 >
-  <!-- TITLE -->
-  <h2
-    class="text-center font-bold mb-4 tracking-widest text-purple-950 text-3xl opacity-50"
-  >
-    {title}
-  </h2>
+  <!-- LEFT SIDE -->
+  <div class="flex flex-col items-center gap-[6vh] w-1/6">
+    <!-- D-pad -->
+    <DPad />
 
-  <!-- Main console layout -->
-  <div class="flex items-center justify-center gap-8">
-    <!-- LEFT SIDE -->
-    <div class="flex flex-col items-center gap-20 w-40">
-      <!-- D-pad -->
-      <DPad />
+    <!-- Start button -->
+    <button
+      class="rounded-full btn btn-soft opacity-85 border-6 h-[6vh] w-[12vh]"
+      title="Start"
+    >
+      <Ellipsis class="opacity-50 size-[6vh]" />
+    </button>
+  </div>
 
-      <!-- Start -->
-      <button
-        title="Start"
-        class="btn btn-soft opacity-85 border-6 w-20 rounded-full"
-      >
-        <Ellipsis class="opacity-50" />
-      </button>
-    </div>
-
-    <!-- SCREEN -->
+  <!-- CENTER -->
+  <div class="flex flex-col items-center justify-center gap-[2vh] w-4/6">
+    <!-- Screen -->
     <div
-      class="bg-gray-950 rounded-lg h-100 w-150 flex items-center justify-center mb-12 border-6 border-gray-800 opacity-85"
+      class="flex items-center justify-center bg-gray-950 rounded-2xl h-[60vh] w-[90vh] border-6 border-gray-800 opacity-85"
     >
       <slot>
-        <span class="text-purple-300 font-mono text-4xl opacity-25">
+        <span class="text-purple-300 font-mono text-[4vh] opacity-25">
           INSERT GAME
         </span>
       </slot>
     </div>
+    <!-- Logo -->
+    <h2
+      class="text-center tracking-widest text-purple-900 text-[4vh] opacity-60"
+    >
+      <span class="font-semibold">SAME TOY</span>
+      <span class="font-light"><em>PROGRESS</em></span>
+    </h2>
+  </div>
 
-    <!-- RIGHT SIDE -->
-    <div class="flex flex-col items-center gap-6 w-40">
-      <!-- A + B BUTTONS -->
-      <div class="flex flex-col items-center gap-20">
-        <button
-          title="A"
-          class="btn btn-circle btn-success opacity-90 border-6 w-20 h-20"
-          ><Plus class="h-10 w-10 opacity-50" /></button
-        >
-        <button
-          title="B"
-          class="btn btn-circle btn-error opacity-90 border-6 w-20 h-20"
-          ><Minus class="h-10 w-10 opacity-50" /></button
-        >
-      </div>
+  <!-- RIGHT SIDE -->
+  <div class="flex flex-col items-center gap-[6vh] w-1/6">
+    <!-- A + B buttons -->
+    <div class="flex flex-col items-center gap-[6vh]">
+      <button
+        title="A"
+        class="btn btn-circle btn-success opacity-90 border-6 size-[15vh]"
+        ><Plus class="opacity-50 size-[10vh]" /></button
+      >
+      <button
+        title="B"
+        class="btn btn-circle btn-error opacity-90 border-6 size-[15vh]"
+        ><Minus class="opacity-50 size-[10vh]" /></button
+      >
     </div>
   </div>
 </div>
