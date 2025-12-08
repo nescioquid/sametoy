@@ -3,6 +3,7 @@
   import DPad from '$lib/DPad.svelte'
   import Logo from '$lib/Logo.svelte'
   import PowerOnOff from '$lib/PowerOnOff.svelte'
+  import Screen from '$lib/Screen.svelte'
   import Start from '$lib/Start.svelte'
 </script>
 
@@ -11,23 +12,13 @@
 >
   <!-- LEFT SIDE -->
   <div class="flex flex-col items-center gap-[12vh] w-1/6">
-    <!-- D-pad -->
     <DPad />
     <Start />
   </div>
 
   <!-- CENTER -->
   <div class="flex flex-col items-center justify-center gap-[2vh] w-4/6">
-    <!-- Screen -->
-    <div
-      class="flex items-center justify-center bg-gray-950 rounded-2xl h-[60vh] w-[90vh] border-6 border-gray-800 opacity-85"
-    >
-      <slot>
-        <span class="text-purple-300 font-mono text-[4vh] opacity-25">
-          INSERT GAME
-        </span>
-      </slot>
-    </div>
+    <Screen />
     <Logo />
   </div>
 
