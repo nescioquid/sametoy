@@ -2,7 +2,7 @@
   import ThemeController from "$lib/ThemeController.svelte";
 </script>
 
-<div class="navbar bg-base-100 shadow-sm">
+<div class="navbar bg-base-300 shadow-sm">
   <div class="flex-1">
     <a href="https://pokemon-gt.netlify.app/" class="btn btn-ghost text-xl"
       >Demo | Same Toy</a

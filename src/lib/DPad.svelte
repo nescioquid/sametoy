@@ -1,12 +1,34 @@
-<div class="col-span-1 flex items-center justify-center">
-  <div class="relative w-16 h-16">
-    <!-- Vertical -->
-    <div class="absolute inset-x-5 top-0 bottom-0 bg-gray-700 rounded"></div>
+<script>
+  import {
+    ChevronUp,
+    ChevronRight,
+    ChevronDown,
+    ChevronLeft,
+  } from '@lucide/svelte'
+</script>
 
-    <!-- Horizontal -->
-    <div class="absolute inset-y-5 left-0 right-0 bg-gray-700 rounded"></div>
+<div class="relative w-35 h-35">
+  <!-- Up -->
+  <button title="Up"
+    class="btn btn-circle btn-soft w-12 h-12 opacity-85 border-6 absolute top-0 left-1/2 -translate-x-1/2"
+    ><ChevronUp class="h-8 w-8 opacity-50" />
+  </button>
 
-    <!-- Center knob -->
-    <div class="absolute inset-0 m-auto bg-gray-800 rounded-full w-4 h-4"></div>
-  </div>
+  <!-- Right -->
+  <button title="Right"
+    class="btn btn-circle btn-soft w-12 h-12 opacity-85 border-6 absolute top-1/2 right-0 -translate-y-1/2"
+    ><ChevronRight class="h-8 w-8 opacity-50" />
+  </button>
+
+  <!-- Down -->
+  <button title="Down"
+    class="btn btn-circle btn-soft w-12 h-12 opacity-85 border-6 absolute bottom-0 left-1/2 -translate-x-1/2"
+    ><ChevronDown class="h-8 w-8 opacity-50" />
+  </button>
+
+  <!-- Left -->
+  <button title="Left"
+    class="btn btn-circle btn-soft w-12 h-12 opacity-85 border-6 absolute top-1/2 left-0 -translate-y-1/2"
+    ><ChevronLeft class="h-8 w-8 opacity-50" />
+  </button>
 </div>
