@@ -21,7 +21,7 @@
 <svelte:document onchange = {updateTheme} />
 
 <div
-  class="card flex-row gap-[3vh] items-center justify-center border-[2vh] rounded-t-[20vh] rounded-b-[30vh] h-9/10 w-10/10 p-[6vh] pt-[9vh] opacity-90
+  class="card flex-row gap-[3vh] items-center justify-center border-[2vh] rounded-t-[17vh] rounded-b-[33vh] h-9/10 w-10/10 p-[6vh] pt-[9vh] opacity-90
   {theme === 'dark'
     ? ' bg-linear-to-t from-violet-800 to-indigo-600 border-violet-900'
     // Original mono theme
