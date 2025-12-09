@@ -1,11 +1,11 @@
 <script>
-  import AAndB from '$lib/AAndB.svelte'
-  import DPad from '$lib/DPad.svelte'
-  import Logo from '$lib/Logo.svelte'
-  import PowerOn from '$lib/PowerOn.svelte'
-  import Screen from '$lib/Screen.svelte'
-  import Speaker from '$lib/Speaker.svelte'
-  import Start from '$lib/Start.svelte'
+  import AAndB from '$lib/components/same-toy/AAndB.svelte'
+  import DPad from '$lib/components/same-toy/DPad.svelte'
+  import Logo from '$lib/components/same-toy/Logo.svelte'
+  import PowerOn from '$lib/components/same-toy/PowerOn.svelte'
+  import Screen from '$lib/components/same-toy/Screen.svelte'
+  import Speaker from '$lib/components/same-toy/Speaker.svelte'
+  import Start from '$lib/components/same-toy/Start.svelte'
 </script>
 
 <div

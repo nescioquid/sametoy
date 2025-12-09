@@ -1,10 +1,10 @@
 <script>
-  import ThemeController from "$lib/ThemeController.svelte";
+  import ThemeController from "$lib/components/ThemeController.svelte";
 </script>
 
-<header class="navbar bg-base-100 shadow-sm">
+<header class="shadow-sm navbar bg-base-100">
   <div class="flex-1">
-    <a href="https://pokemon-gt.netlify.app/" class="btn btn-ghost text-xl opacity-50"
+    <a href="https://pokemon-gt.netlify.app/" class="text-xl opacity-50 btn btn-ghost"
       >Demo | Same Toy</a
     >
   </div>
@@ -16,7 +16,7 @@
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
-        class="inline-block h-5 w-5 stroke-current"
+        class="inline-block w-5 h-5 stroke-current"
       >
         <path
           stroke-linecap="round"
