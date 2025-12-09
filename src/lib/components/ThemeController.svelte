@@ -1,4 +1,4 @@
-<label class="swap swap-rotate opacity-50">
+<label class="swap swap-rotate opacity-50 flex-1 pr-2">
   <!-- this hidden checkbox controls the state -->
   <input type="checkbox" class="theme-controller" value="dark"/>
 
