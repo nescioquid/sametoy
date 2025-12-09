@@ -2,7 +2,7 @@
   import AAndB from '$lib/AAndB.svelte'
   import DPad from '$lib/DPad.svelte'
   import Logo from '$lib/Logo.svelte'
-  import PowerOnOff from '$lib/PowerOnOff.svelte'
+  import PowerOn from '$lib/PowerOn.svelte'
   import Screen from '$lib/Screen.svelte'
   import Speaker from '$lib/Speaker.svelte'
   import Start from '$lib/Start.svelte'
@@ -15,7 +15,7 @@
   <div class="flex flex-col items-center gap-[6vh] flex-1">
     <Speaker class="flex-1" />
     <DPad class="flex-1" />
-    <PowerOnOff class="flex-1" />
+    <PowerOn class="flex-1" />
     <div class="flex-1"></div>
     <div class="flex-1"></div>
   </div>
