@@ -27,6 +27,7 @@
 	},
 	"dependencies": {
 		"@lucide/svelte": "^0.556.0",
-		"daisyui": "^5.5.8"
+		"daisyui": "^5.5.8",
+		"kaplay": "^3001.0.19"
 	}
 }
