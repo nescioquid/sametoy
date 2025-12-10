@@ -5,7 +5,6 @@
 
   const activate = (pressed) => {
     active = pressed
-    console.log('PRESS:', pressed)
   }
 
   const pressA = () => activate('a')

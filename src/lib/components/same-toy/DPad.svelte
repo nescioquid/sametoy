@@ -10,7 +10,6 @@
 
   const activate = (pressed) => {
     active = pressed
-    console.log('PRESS:', pressed)
   }
 
   const moveUp = () => activate('up')
