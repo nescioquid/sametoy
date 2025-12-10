@@ -3,7 +3,7 @@
   import DPad from '$lib/components/same-toy/DPad.svelte'
   import Housing from '$lib/components/same-toy/Housing.svelte'
   import Logo from '$lib/components/same-toy/Logo.svelte'
-  import PowerOn from '$lib/components/same-toy/PowerOn.svelte'
+  import Ignition from '$lib/components/same-toy/Ignition.svelte'
   import Screen from '$lib/components/same-toy/Screen.svelte'
   import Speaker from '$lib/components/same-toy/Speaker.svelte'
   import Start from '$lib/components/same-toy/Start.svelte'
@@ -14,7 +14,7 @@
   <div class="flex flex-col items-center gap-[6vh] flex-1">
     <Speaker class="flex-1" />
     <DPad class="flex-1" />
-    <PowerOn class="flex-1" />
+    <Ignition />
     <div class="flex-1"></div>
     <div class="flex-1"></div>
   </div>
