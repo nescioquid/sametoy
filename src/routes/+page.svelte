@@ -6,6 +6,4 @@
 
 <main class="grid place-content-center size-full bg-base-300 py-9">
   <SameToy />
-  <!-- <Game /> -->
-  <!-- <Screen /> -->
 </main>
