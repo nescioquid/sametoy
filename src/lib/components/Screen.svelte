@@ -1,5 +1,5 @@
 <script>
-  import Game from '$lib/components/same-toy/kaplay/Game.svelte'
+  import Game from '$lib/kaplay/Game.svelte'
   import { power } from '$lib/power.svelte'
 </script>
 
