@@ -8,33 +8,71 @@ export default async function createPlayer(spriteName, xY) {
     add,
     pos,
     sprite,
-    addKaboom,
-    onKeyDown,
+    onKeyPress,
     z,
     scale,
-    center,
     area,
-    isKeyDown,
     vec2,
     onUpdate,
     dt,
-    onKeyPress
+    isKeyDown,
   } = k
 
   const spritePath = `/sprites/${spriteName}.png`
+
+  const animUp = 0
+  const animLeft = 4
+  const animDown = 8
+  const animRight = 12
+  const animOffset = 0
+  const walkStart = 0
+  const walkEnd = 3
+  // const animSpeed = 10
 
   await loadSprite(spriteName, spritePath, {
     sliceX: 4,
     sliceY: 4,
     anims: {
-      stillUp: { from: 2, to: 3, speed: 3, loop: true },
-      stillLeft: { from: 6, to: 7, speed: 3, loop: true },
-      stillDown: { from: 10, to: 11, speed: 3, loop: true },
-      stillRight: { from: 14, to: 15, speed: 3, loop: true },
-      walkUp: { from: 0, to: 3, speed: 3, loop: true },
-      walkLeft: { from: 4, to: 7, speed: 3, loop: true },
-      walkDown: { from: 8, to: 11, speed: 3, loop: true },
-      walkRight: { from: 12, to: 15, speed: 3, loop: true },
+      idleUp: {
+        from: animUp,
+        to: animUp + animOffset,
+        // speed: animSpeed,
+      },
+      idleLeft: {
+        from: animLeft,
+        to: animLeft + animOffset,
+        // speed: animSpeed,
+      },
+      idleDown: {
+        from: animDown,
+        to: animDown + animOffset,
+        // speed: animSpeed,
+      },
+      idleRight: {
+        from: animRight,
+        to: animRight + animOffset,
+        // speed: animSpeed,
+      },
+      walkUp: {
+        from: animUp + walkStart,
+        to: animUp + walkEnd,
+        // speed: animSpeed,
+      },
+      walkLeft: {
+        from: animLeft + walkStart,
+        to: animLeft + walkEnd,
+        // speed: animSpeed,
+      },
+      walkDown: {
+        from: animDown + walkStart,
+        to: animDown + walkEnd,
+        // speed: animSpeed,
+      },
+      walkRight: {
+        from: animRight + walkStart,
+        to: animRight + walkEnd,
+        // speed: animSpeed,
+      },
     },
   })
 
@@ -46,119 +84,87 @@ export default async function createPlayer(spriteName, xY) {
     scale(SCALE_FACTOR),
     {
       speed: 200,
-      direction: null,
+      direction: 'down',
       isMoving: false,
-      // isInDialogue: false,
-      target: vec2(player.pos),
+      target: vec2(0, 0), // overwritten right after
+      moveDir: vec2(0, 0),
     },
     'player',
   ])
 
+  // now that player exists, set a real initial target
+  player.target = vec2(player.pos)
+
+  // --- Movement updater ---
   onUpdate('player', () => {
     if (player.isMoving) {
       const dir = player.moveDir
       const step = dir.scale(player.speed * dt())
       const next = player.pos.add(step)
 
-      // Check if we've reached or passed the target tile
+      // reached (or passed) target tile?
       if (
         (dir.x > 0 && next.x >= player.target.x) ||
         (dir.x < 0 && next.x <= player.target.x) ||
         (dir.y > 0 && next.y >= player.target.y) ||
         (dir.y < 0 && next.y <= player.target.y)
       ) {
+        // snap to tile
         player.pos = player.target.clone()
         player.isMoving = false
-        player.play('idle' + player.direction.toUpperCase())
+
+        // play idle animation
+        player.play(
+          'idle' +
+            player.direction.charAt(0).toUpperCase() +
+            player.direction.slice(1)
+        )
+
+        // --- auto continue if key still held ---
+        const key = player.direction
+        if (isKeyDown(key)) {
+          const vec =
+            key === 'up'
+              ? vec2(0, -1)
+              : key === 'left'
+              ? vec2(-1, 0)
+              : key === 'down'
+              ? vec2(0, 1)
+              // key === 'right'
+              : vec2(1, 0)
+
+          tryMove(key, vec)
+        }
       } else {
         player.pos = next
       }
     }
   })
 
+  // --- Try to move 1 tile ---
   function tryMove(dirName, dirVec) {
     if (player.isMoving) return
 
-    // set animation
-    if (player.direction !== dirName) {
-      player.play('walk' + dirName.toUpperCase())
-    }
     player.direction = dirName
 
-    // Compute destination tile
-    const targetX = player.pos.x + dirVec.x * tileSize
-    const targetY = player.pos.y + dirVec.y * tileSize
+    // walk animation: walkUp, walkLeft, etc.
+    player.play('walk' + dirName.charAt(0).toUpperCase() + dirName.slice(1))
 
-    // TODO: here you can add collision checking before committing
-    // if (!isTileWalkable(targetX, targetY)) return
+    const targetX = player.pos.x + dirVec.x * TILE_SIZE * SCALE_FACTOR
+    const targetY = player.pos.y + dirVec.y * TILE_SIZE * SCALE_FACTOR
+
+    // collision check can go here
 
     player.target = vec2(targetX, targetY)
     player.moveDir = dirVec
     player.isMoving = true
   }
 
+  // input
   onKeyPress('up', () => tryMove('up', vec2(0, -1)))
   onKeyPress('left', () => tryMove('left', vec2(-1, 0)))
   onKeyPress('down', () => tryMove('down', vec2(0, 1)))
   onKeyPress('right', () => tryMove('right', vec2(1, 0)))
 
-//   function areAnyOfTheseKeysDown(keys) {
-//     for (const key of keys) {
-//       if (isKeyDown(key)) return true
-//     }
-
-//     return false
-//   }
-
-//   const handlers = {
-//     // w: () => player.move(0, -player.speed),
-//     // a: () => player.move(-player.speed, 0),
-//     // s: () => player.move(0, player.speed),
-//     // d: () => player.move(player.speed, 0),
-
-//     // if (gameState.getShowModal() === true) return
-
-//     up: () => {
-//       if (areAnyOfTheseKeysDown(['left', 'down', 'right'])) return
-//       if (player.direction !== 'up') {
-//         player.play('walkUp')
-//         player.direction = 'up'
-//       }
-//       player.move(0, -player.speed)
-//     },
-
-//     left: () => {
-//       if (areAnyOfTheseKeysDown(['up', 'down', 'right'])) return
-//       if (player.direction !== 'left') {
-//         player.play('walkLeft')
-//         player.direction = 'left'
-//       }
-
-//       player.move(-player.speed, 0)
-//     },
-
-//     down: () => {
-//       if (areAnyOfTheseKeysDown(['up', 'left', 'right'])) return
-//       if (player.direction !== 'down') {
-//         player.play('walkDown')
-//         player.direction = 'down'
-//       }
-//       player.move(0, player.speed)
-//     },
-
-//     right: () => {
-//       if (areAnyOfTheseKeysDown(['up', 'left', 'down'])) return
-//       if (player.direction !== 'right') {
-//         player.play('walkRight')
-//         player.direction = 'right'
-//       }
-//       player.move(player.speed, 0)
-//     },
-
-//     x: () => addKaboom(player.pos),
-//     z: () => addKaboom(player.pos),
-//     enter: () => addKaboom(player.pos),
-//   }
-
-//   onKeyDown((key) => handlers[key]?.())
+  return player
 }
