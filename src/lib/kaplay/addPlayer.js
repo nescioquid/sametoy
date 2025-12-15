@@ -14,7 +14,7 @@ export function addPlayer(spriteName, x, y, frame = 0) {
     scale(SCALE_FACTOR),
     {
       speed: 200,
-      direction: 'south',
+      direction: 'down',
       isMoving: false,
       target: vec2(0, 0),
       moveDir: vec2(0, 0),
