@@ -6,13 +6,10 @@ export function addPlayer(spriteName, x, y, frame = 0) {
   const k = getKaplay()
   const { add, sprite, area, pos, z, scale, vec2 } = k
 
-  x *= OFFSET
-  y *= OFFSET
-
-  const player = add([
-    sprite('brendan', { frame: playerAnim[frame] }),
+  return add([
+    sprite(spriteName, { frame: playerAnim[frame] }),
     area(),
-    pos(x, y),
+    pos(x * OFFSET, y * OFFSET),
     z(1),
     scale(SCALE_FACTOR),
     {
@@ -24,5 +21,4 @@ export function addPlayer(spriteName, x, y, frame = 0) {
     },
     'player',
   ])
-  return player
 }
