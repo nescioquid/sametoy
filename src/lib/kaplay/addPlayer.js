@@ -4,7 +4,7 @@ import { OFFSET, SCALE_FACTOR } from '$lib/kaplay/constants'
 
 export function addPlayer(spriteName, x, y, frame = 0) {
   const k = getKaplay()
-  const { add, sprite, area, pos, z, scale, vec2 } = k
+  const { add, sprite, area, pos, z, scale, vec2, body } = k
 
   return add([
     sprite(spriteName, { frame: playerAnim[frame] }),
@@ -12,6 +12,7 @@ export function addPlayer(spriteName, x, y, frame = 0) {
     pos(x * OFFSET, y * OFFSET),
     z(1),
     scale(SCALE_FACTOR),
+    body(),
     {
       speed: 200,
       direction: 'down',
