@@ -15,6 +15,13 @@
 
     scene('game', () => {
       addPlayer('brendan', 6, 3, 'south')
+
+      // loadPlayer('brendan')
+      //   .then(() => loadMap('bedroom'))
+      //   .then((map) => {
+      //     addMap(map)
+      //     addPlayer('brendan', 6, 4)
+      //   })
     })
 
     go('game')

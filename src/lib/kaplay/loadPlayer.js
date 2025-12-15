@@ -14,9 +14,9 @@ export const playerAnim = {
 
 export function loadPlayer(spriteName, x, y, frame = 0) {
   const k = getKaplay()
-  const { loadSprite, add, sprite, area, pos, z, scale, vec2 } = k
+  const { loadSprite } = k
 
-  loadSprite(spriteName, `/sprites/${spriteName}.png`, {
+  return loadSprite(spriteName, `/sprites/${spriteName}.png`, {
     sliceX: 5,
     sliceY: 4,
     anims: {
